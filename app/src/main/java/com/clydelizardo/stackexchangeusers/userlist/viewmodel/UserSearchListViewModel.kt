@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.clydelizardo.stackexchangeusers.userlist.view.model.UserListItem
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class UserListSearchViewModel: ViewModel() {
+@HiltViewModel
+class UserSearchListViewModel @Inject constructor(): ViewModel() {
     val searchInput = MutableLiveData<String>()
 
     private val searchText = MutableLiveData<String>()
