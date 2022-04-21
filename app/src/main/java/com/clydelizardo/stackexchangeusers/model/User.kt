@@ -7,6 +7,6 @@ data class User(
     val name: String,
     val reputation: Int,
     val topTags: List<String>,
-    val location: String,
+    val location: String?,
     val creationDate: Date,
 )

@@ -6,14 +6,21 @@ import com.clydelizardo.stackexchangeusers.model.User
 
 typealias UserModel = User
 
-sealed class UserListItem<T> (
+sealed class UserListItem<T> constructor(
     @LayoutRes
     val resourceId: Int,
-    val content: T
 ) {
-    class User(content: UserModel): UserListItem<UserModel>(R.layout.item_user, content)
+    abstract val content: T
 
-    object Loading: UserListItem<Any?>(R.layout.item_loading, null)
-    object Failed: UserListItem<Any?>(R.layout.item_failed, null)
-    object Empty: UserListItem<Any?>(R.layout.item_empty, null)
+    data class User(override val content: UserModel): UserListItem<UserModel>(R.layout.item_user)
+
+    object Loading: UserListItem<Any?>(R.layout.item_loading) {
+        override val content = null
+    }
+    object Failed: UserListItem<Any?>(R.layout.item_failed) {
+        override val content = null
+    }
+    object Empty: UserListItem<Any?>(R.layout.item_empty) {
+        override val content = null
+    }
 }
