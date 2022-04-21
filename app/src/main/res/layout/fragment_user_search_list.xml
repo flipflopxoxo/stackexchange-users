@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.clydelizardo.stackexchangeusers.userlist.viewmodel.UserSearchListViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,7 +23,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:textSize="16sp"
             tools:text="I search for something"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:text="@={viewModel.searchInput}"/>
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/image_button"
@@ -27,7 +33,8 @@
             android:src="@drawable/ic_baseline_search_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp"/>
+            android:layout_margin="8dp"
+            android:onClick="@{()-> viewModel.onSearch()}"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="0dp"
