@@ -23,7 +23,7 @@
             tools:text="25020966"
             android:maxLines="1"
             android:gravity="center"
-            android:text="@{viewModel.id}"/>
+            android:text="@{String.valueOf(viewModel.id)}"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="0dp"
