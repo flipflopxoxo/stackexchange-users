@@ -45,7 +45,7 @@ class UserDetailsViewModelTest {
     @Test
     fun `on observe of top tags - no tags are available - top tags shown as no tags available`() {
         val getTopTags: GetTopTagsForUserUseCase = mockk()
-        val user = User(id = 0, name = "John Doe", reputation = 1, topTags = emptyList(), location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
+        val user = User(id = 0, name = "John Doe", reputation = 1,  location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
 
         coEvery { getTopTags(any()) } returns emptyList()
 
@@ -70,7 +70,7 @@ class UserDetailsViewModelTest {
     @Test
     fun `on observe of top tags - two tags available - top tags shown and formatted`() {
         val getTopTags: GetTopTagsForUserUseCase = mockk()
-        val user = User(id = 0, name = "John Doe", reputation = 1, topTags = emptyList(), location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
+        val user = User(id = 0, name = "John Doe", reputation = 1,  location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
 
         coEvery { getTopTags(any()) } returns listOf(
             UserTagInfo(tagName = "python", postsCount = 1),
@@ -98,7 +98,7 @@ class UserDetailsViewModelTest {
     @Test
     fun `on observe of top tags - retrieval fails - Unable to get top tags`() {
         val getTopTags: GetTopTagsForUserUseCase = mockk()
-        val user = User(id = 0, name = "John Doe", reputation = 1, topTags = emptyList(), location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
+        val user = User(id = 0, name = "John Doe", reputation = 1,  location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
 
         coEvery { getTopTags(any()) } throws Exception()
 
