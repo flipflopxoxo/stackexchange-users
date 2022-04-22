@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profile_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="32dp"
+                app:layout_constraintHeight_max="256dp"
+                app:layout_constraintWidth_max="256dp"
+                tools:layout_width="256dp"
+                tools:layout_height="256dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/username_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/profile_image_view"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="User name"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/username_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/profile_image_view"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                tools:text="Mark"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reputation_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/username_value"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="Reputation"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/reputation_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/username_value"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                tools:text="5000"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/top_tags_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/reputation_value"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="Top tags"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/top_tags_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/reputation_value"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                tools:text=""/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/badges_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/top_tags_value"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="Badges"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/badges_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/top_tags_value"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                tools:text=""/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/location_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/badges_value"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="Location"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/location_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/badges_value"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="16dp"
+                tools:text=""/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/creation_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/location_value"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="16dp"
+                android:text="Creation Date"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/creation_date_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/location_value"
+                app:layout_constraintStart_toEndOf="@id/creation_date_label"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_margin="16dp"
+                tools:text=""/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
