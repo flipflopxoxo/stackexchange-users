@@ -33,6 +33,9 @@ class UserSearchListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val userListAdapter = UserListAdapter()
+        userListAdapter.onItemSelectedListener = {
+            //TODO navigate to details when item is UserListItem.User
+        }
         binding?.apply {
             recyclerView.adapter = userListAdapter
         }

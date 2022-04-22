@@ -11,14 +11,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.clydelizardo.stackexchangeusers.BR
 import com.clydelizardo.stackexchangeusers.userlist.view.model.UserListItem
 
-class UserListAdapter: ListAdapter<UserListItem<*>, UserListViewHolder>(UserListDiff) {
+class UserListAdapter : ListAdapter<UserListItem<*>, UserListViewHolder>(UserListDiff) {
+    var onItemSelectedListener: ((UserListItem<*>) -> Unit)? = null
+
     override fun getItemViewType(position: Int): Int {
         return getItem(position).resourceId
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        return UserListViewHolder(view)
+        return UserListViewHolder(view) {
+            onItemSelectedListener?.invoke(it)
+        }
     }
 
     override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
@@ -26,24 +30,30 @@ class UserListAdapter: ListAdapter<UserListItem<*>, UserListViewHolder>(UserList
     }
 }
 
-class UserListViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class UserListViewHolder(
+    view: View,
+    private val onItemSelected: (UserListItem<*>) -> Unit,
+) : RecyclerView.ViewHolder(view) {
     private val binding = DataBindingUtil.bind<ViewDataBinding>(view)
 
     fun bind(item: UserListItem<*>) {
         if (item.content != null) {
             binding?.setVariable(BR.viewModel, item.content)
+            itemView.setOnClickListener {
+                onItemSelected(item)
+            }
         }
     }
 }
 
-object UserListDiff: DiffUtil.ItemCallback<UserListItem<*>>() {
+object UserListDiff : DiffUtil.ItemCallback<UserListItem<*>>() {
     override fun areItemsTheSame(oldItem: UserListItem<*>, newItem: UserListItem<*>): Boolean {
         return when (oldItem) {
             is UserListItem.User -> {
-               newItem is UserListItem.User && oldItem.content.id == newItem.content.id
+                newItem is UserListItem.User && oldItem.content.id == newItem.content.id
             }
             else -> {
-                newItem == newItem
+                oldItem == newItem
             }
         }
     }
