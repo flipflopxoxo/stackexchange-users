@@ -1,4 +1,4 @@
-package com.clydelizardo.stackexchangeusers.repository
+package com.clydelizardo.stackexchangeusers.userdetails.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
