@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.testing.TestLifecycleOwner
+import com.clydelizardo.stackexchangeusers.model.BadgeCount
 import com.clydelizardo.stackexchangeusers.model.User
 import com.clydelizardo.stackexchangeusers.userlist.usecase.FindUsers
 import com.clydelizardo.stackexchangeusers.userlist.view.model.UserListItem
@@ -40,7 +41,7 @@ class UserSearchListViewModelTest {
     @Test
     fun `on search of text - result is not empty - list is populated`() {
         val findUsers: FindUsers = mockk()
-        val resultItem = User(id = 0, name = "John Doe", reputation = 1, topTags = emptyList(), location = null, creationDate = Date(0L))
+        val resultItem = User(id = 0, name = "John Doe", reputation = 1, topTags = emptyList(), location = null, creationDate = Date(0L), profileImageUrl = "", badgeCount = BadgeCount(0, 0, 0))
 
         coEvery { findUsers(any()) } returns listOf(resultItem)
         val viewModel = UserSearchListViewModel(
