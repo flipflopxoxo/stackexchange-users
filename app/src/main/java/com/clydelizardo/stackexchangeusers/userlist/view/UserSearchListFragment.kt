@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.clydelizardo.stackexchangeusers.databinding.FragmentUserSearchListBinding
+import com.clydelizardo.stackexchangeusers.userlist.view.model.UserListItem
 import com.clydelizardo.stackexchangeusers.userlist.viewmodel.UserSearchListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,7 +36,10 @@ class UserSearchListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val userListAdapter = UserListAdapter()
         userListAdapter.onItemSelectedListener = {
-            //TODO navigate to details when item is UserListItem.User
+            if (it is UserListItem.User) {
+                findNavController().navigate(UserSearchListFragmentDirections.actionUserSearchListFragmentToUserDetailsFragment(
+                    it.content))
+            }
         }
         binding?.apply {
             recyclerView.adapter = userListAdapter
