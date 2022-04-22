@@ -9,5 +9,6 @@ data class User(
     val topTags: List<String>,
     val location: String?,
     val creationDate: Date,
-    val profileImageUrl: String
+    val profileImageUrl: String,
+    val badgeCount: BadgeCount
 )
