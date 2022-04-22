@@ -9,5 +9,18 @@
         android:id="@+id/userSearchListFragment"
         android:name="com.clydelizardo.stackexchangeusers.userlist.view.UserSearchListFragment"
         android:label="UserSearchListFragment"
-        tools:layout="@layout/fragment_user_search_list"/>
+        tools:layout="@layout/fragment_user_search_list">
+        <action
+            android:id="@+id/action_userSearchListFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.clydelizardo.stackexchangeusers.userdetails.view.UserDetailsFragment"
+        android:label="UserDetailsFragment"
+        tools:layout="@layout/fragment_user_details">
+        <argument
+            android:name="user"
+            app:argType="com.clydelizardo.stackexchangeusers.model.User" />
+    </fragment>
 </navigation>
