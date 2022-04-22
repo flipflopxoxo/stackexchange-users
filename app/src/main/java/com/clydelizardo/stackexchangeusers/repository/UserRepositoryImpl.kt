@@ -2,6 +2,8 @@ package com.clydelizardo.stackexchangeusers.repository
 
 import com.clydelizardo.stackexchangeusers.api.UserService
 import com.clydelizardo.stackexchangeusers.api.model.CollectiveMembership
+import com.clydelizardo.stackexchangeusers.api.model.UserApiModel
+import com.clydelizardo.stackexchangeusers.model.BadgeCount
 import com.clydelizardo.stackexchangeusers.model.User
 import kotlinx.coroutines.Dispatchers
 import java.util.*
@@ -32,7 +34,8 @@ class UserRepositoryImpl @Inject constructor(
                     topTags = findTopTags(user.collectives),
                     location = user.location,
                     creationDate = Date(user.creationDate.toLong()),
-                    profileImageUrl = user.profileImage
+                    profileImageUrl = user.profileImage,
+                    badgeCount = extractBadgeCount(user)
                 )
             } ?: emptyList()
         }
@@ -54,4 +57,12 @@ private fun findTopTags(collectives: List<CollectiveMembership>?): List<String> 
         it == maxTagAppearance
     }.keys.toList()
     return tags
+}
+
+private fun extractBadgeCount(user: UserApiModel): BadgeCount {
+    return BadgeCount(
+        bronze = user.badgeCounts.bronze,
+        silver = user.badgeCounts.silver,
+        gold = user.badgeCounts.gold
+    )
 }
