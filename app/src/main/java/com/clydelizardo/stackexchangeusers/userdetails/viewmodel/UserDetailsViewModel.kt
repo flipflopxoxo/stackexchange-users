@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.clydelizardo.stackexchangeusers.model.User
-import com.clydelizardo.stackexchangeusers.userdetails.usecase.GetTopTagsForUserUseCase
+import com.clydelizardo.stackexchangeusers.userdetails.usecase.GetTopTagsUseCase
 import com.clydelizardo.stackexchangeusers.userdetails.view.UserDetailsFragmentArgs
 import dagger.hilt.android.lifecycle.HiltViewModel
 import java.text.DateFormat
@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class UserDetailsViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    getTopTagsForUserUseCase: GetTopTagsForUserUseCase
+    getTopTagsUseCase: GetTopTagsUseCase
 ) : ViewModel() {
     private val user: User = UserDetailsFragmentArgs.fromSavedStateHandle(savedStateHandle).user
 
@@ -27,7 +27,7 @@ class UserDetailsViewModel @Inject constructor(
     val topTags: LiveData<String> = liveData {
         emit("...")
         try {
-            val topTags = getTopTagsForUserUseCase(user)
+            val topTags = getTopTagsUseCase(user)
             if (topTags.isNotEmpty()) {
                 emit(topTags.map {
                     "${it.tagName}: ${it.postsCount} post(s)"
