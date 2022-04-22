@@ -63,6 +63,8 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
 
+    implementation 'com.squareup.picasso:picasso:2.8'
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation "androidx.arch.core:core-testing:$arch_version"
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
