@@ -29,7 +29,7 @@
                 app:layout_constraintTop_toBottomOf="@id/profile_image_view"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="User name"/>
+                android:text="@string/user_name"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/username_value"
@@ -48,7 +48,7 @@
                 app:layout_constraintTop_toBottomOf="@id/username_value"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="Reputation"/>
+                android:text="@string/reputation"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/reputation_value"
@@ -67,7 +67,7 @@
                 app:layout_constraintTop_toBottomOf="@id/reputation_value"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="Top tags"/>
+                android:text="@string/top_tags"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/top_tags_value"
@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toBottomOf="@id/top_tags_value"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="Badges"/>
+                android:text="@string/badges"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/badges_value"
@@ -105,7 +105,7 @@
                 app:layout_constraintTop_toBottomOf="@id/badges_value"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="Location"/>
+                android:text="@string/location"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/location_value"
@@ -124,7 +124,7 @@
                 app:layout_constraintTop_toBottomOf="@id/location_value"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_margin="16dp"
-                android:text="Creation Date"/>
+                android:text="@string/creation_date"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/creation_date_value"
