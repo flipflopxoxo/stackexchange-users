@@ -37,8 +37,9 @@ class UserSearchListFragment : Fragment() {
         val userListAdapter = UserListAdapter()
         userListAdapter.onItemSelectedListener = {
             if (it is UserListItem.User) {
-                findNavController().navigate(UserSearchListFragmentDirections.actionUserSearchListFragmentToUserDetailsFragment(
-                    it.content))
+                findNavController().navigate(
+                    UserSearchListFragmentDirections.actionUserSearchListFragmentToUserDetailsFragment(
+                        it.content))
             }
         }
         binding?.apply {
