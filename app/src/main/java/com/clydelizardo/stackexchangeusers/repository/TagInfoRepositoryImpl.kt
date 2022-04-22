@@ -1,5 +1,6 @@
 package com.clydelizardo.stackexchangeusers.repository
 
+import com.clydelizardo.stackexchangeusers.api.ApiConstants
 import com.clydelizardo.stackexchangeusers.api.UserService
 import com.clydelizardo.stackexchangeusers.model.User
 import com.clydelizardo.stackexchangeusers.model.UserTagInfo
@@ -9,7 +10,11 @@ class TagInfoRepositoryImpl @Inject constructor(
     private val userService: UserService,
 ) : TagInfoRepository {
     override suspend fun getTagsForUser(user: User): List<UserTagInfo> {
-        return userService.getTopTags(userId = user.id, site = "stackoverflow").items?.map {
+        return userService.getTopTags(
+            userId = user.id,
+            site = "stackoverflow",
+            key = ApiConstants.API_KEY
+        ).items?.map {
             UserTagInfo(
                 tagName = it.tagName,
                 postsCount = it.questionCount + it.answerCount

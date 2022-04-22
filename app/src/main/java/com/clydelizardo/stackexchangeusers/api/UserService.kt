@@ -28,6 +28,8 @@ interface UserService {
         @Path("id")
         userId: Int,
         @Query("site")
-        site: String
+        site: String,
+        @Query("key")
+        key: String
     ): TopTagsResponse
 }
