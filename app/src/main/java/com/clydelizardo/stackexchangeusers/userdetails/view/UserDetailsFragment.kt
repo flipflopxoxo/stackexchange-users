@@ -25,6 +25,7 @@ class UserDetailsFragment: Fragment() {
         return FragmentUserDetailsBinding.inflate(inflater, container, false).also{
             it.viewModel = viewModel
             binding = it
+            it.lifecycleOwner = viewLifecycleOwner
         }.root
     }
 

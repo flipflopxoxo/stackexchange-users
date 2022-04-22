@@ -4,5 +4,5 @@ import com.clydelizardo.stackexchangeusers.model.User
 import com.clydelizardo.stackexchangeusers.model.UserTagInfo
 
 fun interface GetTopTagsForUserUseCase {
-    suspend fun invoke(user: User): List<UserTagInfo>
+    suspend operator fun invoke(user: User): List<UserTagInfo>
 }
