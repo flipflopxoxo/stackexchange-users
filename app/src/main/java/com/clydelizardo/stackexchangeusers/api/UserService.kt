@@ -1,7 +1,9 @@
 package com.clydelizardo.stackexchangeusers.api
 
 import com.clydelizardo.stackexchangeusers.api.model.UserListResponse
+import com.clydelizardo.stackexchangeusers.api.model.toptags.TopTagsResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface UserService {
@@ -20,4 +22,12 @@ interface UserService {
         @Query("max")
         max: Int = 0
     ): UserListResponse
+
+    @GET("2.3/users/{id}/top-tags")
+    suspend fun getTopTags(
+        @Path("id")
+        userId: Int,
+        @Query("site")
+        site: String
+    ): TopTagsResponse
 }
