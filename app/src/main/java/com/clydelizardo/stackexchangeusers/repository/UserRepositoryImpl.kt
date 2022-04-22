@@ -31,7 +31,8 @@ class UserRepositoryImpl @Inject constructor(
                     reputation = user.reputation,
                     topTags = findTopTags(user.collectives),
                     location = user.location,
-                    creationDate = Date(user.creationDate.toLong())
+                    creationDate = Date(user.creationDate.toLong()),
+                    profileImageUrl = user.profileImage
                 )
             } ?: emptyList()
         }
